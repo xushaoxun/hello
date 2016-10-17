@@ -6,11 +6,11 @@ import bs4
 
 url = 'http://www.163.com'
 
-content = urllib2.urlopen(url).read().decode('gbk').encode('utf-8')
+content = urllib2.urlopen(url).read().decode('gbk')#.encode('utf-8')
 
-soup = bs4.BeautifulSoup(content)
+soup = bs4.BeautifulSoup(content, 'html5lib')
 
-links = bs4.select('li a[href]')
+links = soup.select('li a')
 
 result = []
 for link in links:
@@ -20,3 +20,5 @@ for link in links:
         result.append(link)
 
 
+print '新闻条数%s' % (len(result))
+#print result
