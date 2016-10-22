@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 import threading
 import multiprocessing
 import sys
+import gevent
+from gevent import monkey
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -86,9 +88,26 @@ def use_multi_processing():
     t2 = time.time()
     print 'using %d seconds' % (t2 - t1)
 
+def use_gevent():
+    print 'use gevent'
+    t1 = time.time()
+
+    monkey.patch_all()
+
+    jobs = []
+    for f,t in page_ranges:
+        jobs.append(gevent.spawn(get_urls_in_pages, f, t))
+    gevent.joinall(jobs)
+
+    t2 = time.time()
+    print 'use %d seconds' % (t2 - t1)
+
+
 if __name__ == '__main__':
     #non_thread()
 
-    use_thread()
+    #use_thread()
 
-    use_multi_processing()
+    #use_multi_processing()
+
+    use_gevent()
