@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     th_list = []
     for idx, pages in enumerate(page_ranges):
-        th = Thread(task = send_task_and_get_result, args = (idx, pages[0], pages[1]))
+        th = Thread(target = send_task_and_get_result, args = (idx, pages[0], pages[1]))
         th_list.append(th)
     for th in th_list:
         th.start()
