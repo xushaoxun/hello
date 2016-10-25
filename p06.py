@@ -34,3 +34,6 @@ c = cn(s)
 print c
 
 print sorted(c.items(), reverse = True)
+
+if __name__ == '__main__':
+    print '__main__'

@@ -1,11 +1,11 @@
 #!/usr/bin/python
-#coding:utf-8
+# coding:utf-8
 d1 = {'a1': 1, 'a2': 2, 'a3': 3}
-d2 = {'a1': 10, 'a4':40, 'a5': 3}
+d2 = {'a1': 10, 'a4': 40, 'a5': 3}
 
 s1 = set(d1.keys())
 s2 = set(d2.keys())
-#print s1 & s2
+# print s1 & s2
 
 result = {}
 for s in s1 & s2:
