@@ -1,4 +1,50 @@
 #git status
-#git add [file|dir]
-#git commit -m 'comment'
+#git add [file|dir]	提交到暂存区
+#git commit -m 'comment' 从暂存区提交到仓库
+
+查看版本历史
+#git log --pretty=oneline
+
+#git reset --hard HEAD^	回退到前一个版本
+#git reset --hard commit#	commit#可以用git log查看
+
+#git reflog	查看每次执行的命令
+
+#git reset HEAD file把暂存区的修改撤销重新放回工作区
+
+#git checkout -- file 撤销工作区修改
+
+#git rm file 删掉工作区文件，并且提交到暂存区
+#rm file只是删掉工作区文件，用git status可以看到提示git rm file
+
+******************工作区和暂存区
+工作区就是目录
+暂存区stage
+master分支和HEAD指针
+git add把文件添加到工作区
+git commit把暂存区的所有内容提交到分支
+
+******************分支管理
+#git checkout -b dev	创建并转到分之dev
+#git branch	查看分之
+#git add & git commit 	在分支上修改代码
+#git checkout master 	回到master
+#git merge dev 	将dev合并入master
+#git branch -d dev	删除分支
+
+******************冲突
+在master和dev上修改同一个文件file.txt，可能导致冲突
+#git merge dev	冲突
+#vim file.txt
+
+*****************分支管理策略
+之前的合并分支，可能导致分支信息丢失
+#git merge --no-ff -m 'merge comment' dev	--no-ff会保存分支信息，这个选项会产生新的commit
+
+$ git log --graph --pretty=oneline --abbrev-commit
+
+
+********************下载太慢怎么办
+#只下载最新，--depth=1为下载最近一次版本
+$ git clone --depth=1 https://github.com/bcit-ci/CodeIgniter.git
 

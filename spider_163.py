@@ -1,12 +1,12 @@
 #!/usr/bin/python
-#coding:utf-8
+# coding:utf-8
 
 import urllib2
 import bs4
 
 url = 'http://www.163.com'
 
-content = urllib2.urlopen(url).read().decode('gbk')#.encode('utf-8')
+content = urllib2.urlopen(url).read().decode('gbk')  # .encode('utf-8')
 
 soup = bs4.BeautifulSoup(content, 'html5lib')
 
@@ -21,4 +21,4 @@ for link in links:
 
 
 print '新闻条数%s' % (len(result))
-#print result
+# print result
