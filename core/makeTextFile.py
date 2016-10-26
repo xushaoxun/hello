@@ -2,6 +2,27 @@
 
 '''make Text file'''
 
-print 1
-for i in range(1):
-    print 1
+import os
+
+ls = os.linesep
+
+while True:
+    fname = raw_input('file name:')
+    if os.path.exists(fname):
+        print fname, ' exists'
+    else:
+        print 'use ', fname
+        break
+
+lines  = []
+while True:
+    line = raw_input('line, end with .:')
+    if line == '.':
+        break
+    lines.append(line + ls)
+
+with open(fname, 'w') as f:
+    f.writelines(lines)
+print 'OK'
+
+
