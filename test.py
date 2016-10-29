@@ -1,29 +1,41 @@
-#!/usr/bin/python
 # coding:utf-8
-
 '''doc'''
 
-import types
-
-for x in xrange(1, 10):
-    print x,
-
-
-class ClassName(object):
-    """docstring for ClassName"""
-
+class Parent():
     def __init__(self):
-        super(ClassName, self).__init__()
+		print 'call ' , self.__class__
 
-a = 1
-b = 1
-print id(a), id(b)
-print a is b
+class Child():
+	def __init__(self):
+		parent.__init__(self)
+		print 'call ' , self.__class__
 
-print(__doc__)
+p = Parent()
+c = Child()
 
-print 'hello'
+class RoundFloatManual():
+	def __init__(self, val):
+		assert isinstance(val, float), 'Value must be a float'
+		self.value = round(val, 2)
 
-c = ClassName()
-print isinstance(1, int)
-print isinstance(c, ClassName)
+	def __str__(self):
+		return '%.2f' % self.value
+
+	__repr__ = __str__
+
+
+r = RoundFloatManual(3.1)
+print r
+
+class Time60():
+	def __init__(self, hour, minute):
+		self.hour = hour
+		self.minute = minute
+
+	def __str__(self):
+		return '%s:%s' % (self.hour, self.minute)
+
+
+t1 = Time60(4, 50)
+t2 = Time60(5, 50)
+print t1, t2

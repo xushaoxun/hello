@@ -1,0 +1,1 @@
+string -> decode成unicode储存 -> encode(utf-8)显示

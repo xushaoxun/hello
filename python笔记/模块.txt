@@ -1,0 +1,14 @@
+myproject
+  web
+  	__init__.py
+  	utils.py
+
+  __init__.py
+  utils.py
+
+myproject是一个模块
+myproject.web也是一个模块
+模块中必须有__init__.py文件，否则python将认为是普通文件夹
+
+import module
+模块搜索路径在sys.path
