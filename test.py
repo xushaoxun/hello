@@ -1,41 +1,28 @@
 # coding:utf-8
 '''doc'''
 
-class Parent():
-    def __init__(self):
-		print 'call ' , self.__class__
+class Screen():
+    @property
+    def width(self):
+        return self._width
 
-class Child():
-	def __init__(self):
-		parent.__init__(self)
-		print 'call ' , self.__class__
+    @width.setter
+    def width(self, value):
+        self._width = value
 
-p = Parent()
-c = Child()
+    @property
+    def height(self):
+        return self._height
 
-class RoundFloatManual():
-	def __init__(self, val):
-		assert isinstance(val, float), 'Value must be a float'
-		self.value = round(val, 2)
+    @height.setter
+    def height(self, value):
+        self._height = value
 
-	def __str__(self):
-		return '%.2f' % self.value
+    @property
+    def resolution(self):
+        return self._width * self._height
 
-	__repr__ = __str__
-
-
-r = RoundFloatManual(3.1)
-print r
-
-class Time60():
-	def __init__(self, hour, minute):
-		self.hour = hour
-		self.minute = minute
-
-	def __str__(self):
-		return '%s:%s' % (self.hour, self.minute)
-
-
-t1 = Time60(4, 50)
-t2 = Time60(5, 50)
-print t1, t2
+s = Screen()
+s.width = 800
+s.height = 600
+print(s.resolution)
