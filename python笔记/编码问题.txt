@@ -1,4 +1,0 @@
-string -> decode成unicode储存 -> encode(utf-8)显示
-
-从网络上取得的内容，要print出来，必须decode成unicode
-urllib.request(url).read().decode('utf-8')
