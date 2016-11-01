@@ -1,0 +1,7 @@
+ctrl+j,k	在上下视图移动
+
+pymode
+K 	找到定义
+ctrl+c, g找到定义
+
+zc	折叠代码
