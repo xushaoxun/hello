@@ -1,7 +1,7 @@
 # coding:utf-8
 import socket, random
 
-ips = ['192.168.3.103', '127.0.0.1']
+ips = ['192.168.3.51']
 ip = random.choice(ips)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
